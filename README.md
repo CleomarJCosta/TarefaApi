@@ -1,6 +1,7 @@
 # TarefaApi
 Api para gestão de tarefas
 Documentação Swagger : http://localhost:8080/swagger-ui/index.html
+Collection postman em anexo na raiz do projeto da api.
 
 Introdução à API de Tarefas
 
