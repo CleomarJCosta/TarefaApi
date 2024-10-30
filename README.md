@@ -47,6 +47,8 @@ Endpoint: POST /usuarios
 Corpo da Requisição (JSON):
 
 ![image](https://github.com/user-attachments/assets/3d72b245-12dd-4037-807d-2f7a072e5bb7)
+![image](https://github.com/user-attachments/assets/da535ec8-489d-4f83-8ede-0e7ebba51c02)
+
 
 Resposta Esperada: O usuário será criado e você receberá os detalhes do usuário, menos a senha.
 
@@ -59,6 +61,8 @@ Endpoint: POST /usuarios/login
 Corpo da Requisição (JSON):
 
 ![image](https://github.com/user-attachments/assets/923ca860-955c-44d7-ae81-a64fae0a7f45)
+![image](https://github.com/user-attachments/assets/8f8c2104-a2cc-4ffe-bd57-d7cadd3e93d5)
+
 
 Resposta Esperada: Um token JWT que será usado para autenticar as próximas requisições.
 
@@ -76,6 +80,10 @@ Authorization: Bearer seu_token_jwt
 Corpo da Requisição (JSON):
 
 ![image](https://github.com/user-attachments/assets/fe88fedf-e61d-4f1f-a450-35d4b06726b2)
+![image](https://github.com/user-attachments/assets/ad49f245-0bbd-46dd-86ce-69f41d3989b9)
+![image](https://github.com/user-attachments/assets/6dc37418-d157-422b-b3ca-2743e3200417)
+
+
 
 Resposta Esperada: Detalhes da tarefa criada.
 
@@ -113,6 +121,8 @@ Cabeçalho: Adicione o token JWT no cabeçalho de autorização.
 Corpo da Requisição (JSON):
 
 ![image](https://github.com/user-attachments/assets/92070c12-d034-4e32-bd29-c123a8e3e452)
+![image](https://github.com/user-attachments/assets/95a0238e-3efd-4952-8f9a-01e38ec496a5)
+
 
 Resposta Esperada: Detalhes da tarefa atualizada.
 
