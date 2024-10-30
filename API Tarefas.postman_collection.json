@@ -1,0 +1,483 @@
+{
+	"info": {
+		"_postman_id": "61d62f9a-d660-4e1f-ad85-7f56d87c3366",
+		"name": "API Tarefas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11731373",
+		"_collection_link": "https://universal-meadow-826761.postman.co/workspace/My-Workspace~2d71738e-c78a-447b-8a46-e15b74aaeaa1/collection/11731373-61d62f9a-d660-4e1f-ad85-7f56d87c3366?source=collection_link"
+	},
+	"item": [
+		{
+			"name": "Usuario",
+			"item": [
+				{
+					"name": "Post Criar Usuario",
+					"protocolProfileBehavior": {
+						"followAuthorizationHeader": false
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "   { \r\n    \"nomeUsuario\": \"Cleomar Jose da Costa\",\r\n    \"email\": \"cleomarcosta@gmail.com\",\r\n    \"senha\": \"123\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/registrar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"registrar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LOGIN",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "email",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"cleomarcosta@gmail.com\",\r\n    \"senha\": \"123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"login"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "\"paulo@gmail.com\"",
+									"disabled": true
+								},
+								{
+									"key": "password",
+									"value": "\"123\"",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET  todos Usuarios",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"followAuthorizationHeader": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjbGVvbWFyY29zdGFAZ21haWwuY29tIiwiZXhwIjoxNzMwMjcyNTQwfQ.aNbYrd8IRtByleamSNbyn3m9dIfzcLFiTjDM-3qoOEjLZQ7gjZsoKh7YsWSn1QCoxjEN4maMHceNvDCZgV8EpQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/usuarios",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"usuarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Usuario por ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"followAuthorizationHeader": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjbGVvbWFyY29zdGFAZ21haWwuY29tIiwiZXhwIjoxNzMwMjcyNjc4fQ.juDQg6IRM626AMZuws8EGS_8M4ak2Jlu8xgJtKkcNZHQ5_lUgO3bHJcjuCJHjG_bGuXgWLEWchJhD-xGABhK5g",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/usuarios/15",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"usuarios",
+								"15"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE Usuario por ID",
+					"protocolProfileBehavior": {
+						"followAuthorizationHeader": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjbGVvbWFyY29zdGFAZ21haWwuY29tIiwiZXhwIjoxNzMwMjcyNTQwfQ.aNbYrd8IRtByleamSNbyn3m9dIfzcLFiTjDM-3qoOEjLZQ7gjZsoKh7YsWSn1QCoxjEN4maMHceNvDCZgV8EpQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/usuarios/21",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"usuarios",
+								"21"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tarefas",
+			"item": [
+				{
+					"name": "Criar Tarefa",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjbGVvbWFyY29zdGFAZ21haWwuY29tIiwiZXhwIjoxNzMwMjcyNjc4fQ.juDQg6IRM626AMZuws8EGS_8M4ak2Jlu8xgJtKkcNZHQ5_lUgO3bHJcjuCJHjG_bGuXgWLEWchJhD-xGABhK5g",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idUsuario\": 15,\r\n  \"titulo\": \"Estudar React parte 2\",\r\n  \"descricao\": \"Estudar a integração de Spring Boot com React.js\",\r\n  \"status\": \"EM_ANDAMENTO\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/tarefas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"tarefas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar Tarefa por ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjbGVvbWFyY29zdGFAZ21haWwuY29tIiwiZXhwIjoxNzMwMjcyNjc4fQ.juDQg6IRM626AMZuws8EGS_8M4ak2Jlu8xgJtKkcNZHQ5_lUgO3bHJcjuCJHjG_bGuXgWLEWchJhD-xGABhK5g",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idUsuario\": 17,\r\n  \"titulo\": \"Estudar Spring Boot\",\r\n  \"descricao\": \"Estudar a integração de Spring Boot com APIs RESTful\",\r\n  \"status\": \"PENDENTE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/tarefas/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"tarefas",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar Tarefa",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjbGVvbWFyY29zdGFAZ21haWwuY29tIiwiZXhwIjoxNzMwMjcyNjc4fQ.juDQg6IRM626AMZuws8EGS_8M4ak2Jlu8xgJtKkcNZHQ5_lUgO3bHJcjuCJHjG_bGuXgWLEWchJhD-xGABhK5g",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idUsuario\": 6,\r\n  \"titulo\": \"Estudar React.js e Spring Parte 2 e relatorio\",\r\n  \"descricao\": \"Estudar a integração de Spring Boot com APIs RESTful\",\r\n  \"status\": \"PENDENTE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/tarefas/23",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"tarefas",
+								"23"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deleta tarefa",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjbGVvbWFyY29zdGFAZ21haWwuY29tIiwiZXhwIjoxNzMwMjcyNjc4fQ.juDQg6IRM626AMZuws8EGS_8M4ak2Jlu8xgJtKkcNZHQ5_lUgO3bHJcjuCJHjG_bGuXgWLEWchJhD-xGABhK5g",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idUsuario\": 17,\r\n  \"titulo\": \"Estudar Spring Boot\",\r\n  \"descricao\": \"Estudar a integração de Spring Boot com APIs RESTful\",\r\n  \"status\": \"PENDENTE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/tarefas/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"tarefas",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar Todas Tarefas",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjbGVvbWFyY29zdGFAZ21haWwuY29tIiwiZXhwIjoxNzMwMjcyNjc4fQ.juDQg6IRM626AMZuws8EGS_8M4ak2Jlu8xgJtKkcNZHQ5_lUgO3bHJcjuCJHjG_bGuXgWLEWchJhD-xGABhK5g",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idUsuario\": 17,\r\n  \"titulo\": \"Estudar Spring Boot\",\r\n  \"descricao\": \"Estudar a integração de Spring Boot com APIs RESTful\",\r\n  \"status\": \"PENDENTE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/tarefas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"tarefas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar Tarefas  por Status",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjbGVvbWFyY29zdGFAZ21haWwuY29tIiwiZXhwIjoxNzMwMjY2NDY4fQ._oIw-L1s86R2H-K68M9Q1iSPHCv3alvRqLzIJsxrT__OrGT9KYyJFgnuTL87mWijo9zKlSw0TmvG8YF-jHORdw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idUsuario\": 17,\r\n  \"titulo\": \"Estudar Spring Boot\",\r\n  \"descricao\": \"Estudar a integração de Spring Boot com APIs RESTful\",\r\n  \"status\": \"PENDENTE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/tarefas/status/PENDENTE",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"tarefas",
+								"status",
+								"PENDENTE"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
