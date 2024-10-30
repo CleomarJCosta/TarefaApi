@@ -23,6 +23,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import java.util.List;
 import java.util.Optional;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 @RestController
@@ -36,6 +38,8 @@ public class UsuarioController {
 
     private final JwtService jwtService;
 
+    private static final Logger logger = LoggerFactory.getLogger(UsuarioController.class);
+
 
     @Operation(summary = "Registrar um novo usuário", description = "Cria um novo usuário no sistema.")
     @ApiResponses(value = {
@@ -44,10 +48,13 @@ public class UsuarioController {
     })
     @PostMapping("/registrar")
     public ResponseEntity<Usuario> registrarUsuario(@RequestBody Usuario usuario) throws UserAlreadyExistsException {
+        logger.info("Iniciando o registro do usuário com email: {}", usuario.getEmail());
         try {
+            logger.info("Usuário registrado com sucesso: {}", usuario.getEmail());
             Usuario novoUsuario = usuarioService.registrar(usuario);
             return ResponseEntity.status(HttpStatus.CREATED).body(novoUsuario);
         } catch (UserAlreadyExistsException e) {
+            logger.error("Erro ao registrar usuário: {}", e.getMessage());
             throw new UserAlreadyExistsException(e.getMessage());
         }
     }
@@ -61,6 +68,7 @@ public class UsuarioController {
     })
     @PostMapping("/login")
     public ResponseEntity<TokenDTO> autenticar(@RequestBody LoginDTO loginDTO) throws SenhaInvalidaException {
+        logger.info("Iniciando autenticação para o email: {}", loginDTO.getEmail());
         try {
             Usuario usuario = Usuario.builder()
                     .email(loginDTO.getEmail())
@@ -69,8 +77,10 @@ public class UsuarioController {
 
             UserDetails usuarioAutenticado = usuarioService.autenticar(usuario);
             String token = jwtService.gerarToken(usuario);
+            logger.info("Autenticação bem-sucedida para o email: {}", loginDTO.getEmail());
             return ResponseEntity.ok(new TokenDTO(usuario.getEmail(), token));
         } catch (UsernameNotFoundException | SenhaInvalidaException e) {
+            logger.error("Erro de autenticação para o email {}: {}", loginDTO.getEmail(), e.getMessage());
             throw new SenhaInvalidaException("Credenciais inválidas.");
         }
     }
@@ -83,7 +93,9 @@ public class UsuarioController {
     })
     @GetMapping("/usuarios/{id}")
     public ResponseEntity<Optional<Usuario>> getUsuarioById(@PathVariable Long id) throws UserNotFoundException {
+        logger.info("Buscando usuário pelo ID: {}", id);
         Optional<Usuario> usuario = usuarioService.obterUsuarioPorId(id);
+        logger.info("Usuário encontrado: {}", usuario);
         return ResponseEntity.ok(usuario);
     }
 
@@ -93,7 +105,9 @@ public class UsuarioController {
     @ApiResponse(responseCode = "200", description = "Lista de usuários retornada com sucesso")
     @GetMapping("/usuarios")
     public ResponseEntity<List<Usuario>> listarUsuarios() {
+        logger.info("Listando todos os usuários registrados");
         List<Usuario> usuarios = usuarioService.listarUsuarios();
+        logger.info("Número de usuários encontrados: {}", usuarios.size());
         return ResponseEntity.ok(usuarios);
     }
 
@@ -106,7 +120,9 @@ public class UsuarioController {
     })
     @DeleteMapping("/usuarios/{id}")
     public ResponseEntity<Void> excluirUsuario(@PathVariable Long id) throws UserNotFoundException {
+        logger.info("Excluindo usuário com ID: {}", id);
         usuarioService.excluirUsuario(id);
+        logger.info("Usuário com ID {} excluído com sucesso", id);
         return ResponseEntity.noContent().build();
     }
 
