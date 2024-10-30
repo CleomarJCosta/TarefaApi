@@ -19,6 +19,8 @@ Acompanhamento de Tarefas: Os usuários podem visualizar todas as suas tarefas, 
 
 Atualizações e Exclusões: A API permite que os usuários atualizem detalhes de suas tarefas conforme necessário, além de excluir aquelas que não são mais relevantes, assegurando uma lista de tarefas sempre atualizada e relevante.
 
+Para excluir um usuário:  Apenas pode excluir seu próprio usuário.
+
 
 Passo a Passo para Usar a API de Tarefas :
 
