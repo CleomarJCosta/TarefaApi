@@ -1,6 +1,7 @@
 # TarefaApi
 Api para gestão de tarefas
 Documentação Swagger : http://localhost:8080/swagger-ui/index.html
+Collection postman em anexo na raiz do projeto da api.
 
 Introdução à API de Tarefas
 
@@ -17,6 +18,8 @@ Acesso Seguro: A autenticação é realizada por meio de tokens JWT (JSON Web To
 Acompanhamento de Tarefas: Os usuários podem visualizar todas as suas tarefas, filtrando por status para facilitar a gestão de suas responsabilidades.
 
 Atualizações e Exclusões: A API permite que os usuários atualizem detalhes de suas tarefas conforme necessário, além de excluir aquelas que não são mais relevantes, assegurando uma lista de tarefas sempre atualizada e relevante.
+
+Para excluir um usuário:  Apenas pode excluir seu próprio usuário.
 
 
 Passo a Passo para Usar a API de Tarefas :
